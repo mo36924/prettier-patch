@@ -1,8 +1,11 @@
 import { readFileSync, writeFileSync } from "fs";
+import { join } from "path";
+
+const path = join(__dirname, "..", "prettier", "index.js");
 
 writeFileSync(
-  "node_modules/prettier/index.js",
-  readFileSync("node_modules/prettier/index.js", "utf-8").replace(
+  path,
+  readFileSync(path, "utf-8").replace(
     /function isHtml[\s\S]*?}/,
     `function isHtml(path) {
       return (
